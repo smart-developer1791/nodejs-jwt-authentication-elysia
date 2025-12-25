@@ -410,10 +410,22 @@ app.use(protectedApp)
 // SERVER STARTUP
 // =============================================================================
 
+// Port configuration with environment variable fallback
 const PORT = Number(process.env.PORT) || 8080
 
+// Start the HTTP server
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`)
-  console.log(`📝 Test credentials: admin@local / admin`)
-  console.log(`📝 Test credentials: user@local / user`)
+  console.log("=".repeat(60))
+  console.log("  🔐 AUTH PLAYGROUND")
+  console.log("=".repeat(60))
+  console.log(`  🚀 Server:       http://localhost:${PORT}`)
+  console.log(`  📝 Frontend SPA: http://localhost:${PORT}`)
+  console.log("=".repeat(60))
+  console.log("  Test credentials:")
+  console.log("  👑 Admin:        admin@local / admin")
+  console.log("  👤 User:         user@local / user")
+  console.log("=".repeat(60))
+  console.log("  Runtime: Node.js via @elysiajs/node adapter")
+  console.log("  Press Ctrl+C to stop")
+  console.log("=".repeat(60))
 })
