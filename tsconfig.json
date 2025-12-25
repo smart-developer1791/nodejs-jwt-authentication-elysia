@@ -1,0 +1,111 @@
+{
+  /*
+    ---------------------------
+    TypeScript Compiler Options
+    Explained in detail
+    ---------------------------
+  */
+  "compilerOptions": {
+
+    /*
+      Use Node.js-specific ESM module resolution behavior.
+      Required because the project uses:
+      - `"type": "module"` in package.json
+      - ES module imports (`import ... from`)
+      This ensures `.js` and `.ts` files resolve consistently with Node's rules.
+    */
+    "module": "nodenext",
+
+    /*
+      Compile output to modern JavaScript (ESNext).
+      Node.js 18+ supports most ESNext features natively,
+      so this produces the cleanest and most future-proof output.
+    */
+    "target": "esnext",
+
+    /*
+      Include Node.js type definitions (`fs`, `http`, etc.)
+      Needed because this project uses the native `http` module.
+    */
+    "types": ["node"],
+
+    /*
+      Generate source maps so debugging maps back to TypeScript.
+      Works with VSCode and browser devtools.
+    */
+    "sourceMap": true,
+
+    /*
+      Emit `.d.ts` type definition files alongside the compiled output.
+      Useful if the project is published as a library or consumed elsewhere.
+    */
+    "declaration": true,
+
+    /*
+      Generate source maps for `.d.ts` files.
+      Helps with debugging in external IDEs when the library is referenced.
+    */
+    "declarationMap": true,
+
+    /*
+      Enable strict checking for indexed access like obj[key].
+      Prevents undefined values from slipping in accidentally.
+    */
+    "noUncheckedIndexedAccess": true,
+
+    /*
+      Enforce exact handling of optional properties.
+      Prevents accidentally assuming a missing property behaves like `undefined`.
+    */
+    "exactOptionalPropertyTypes": true,
+
+    /*
+      Turn on all strict TypeScript type checks:
+      - strict null checks
+      - strict function types
+      - strict bind/call/apply
+      - strict implicit any rules
+      Strongly recommended for backend correctness.
+    */
+    "strict": true,
+
+    /*
+      Do not transform import/export syntax.
+      Produce output *exactly* matching the ES module source.
+      Critical for compatibility with ESM + NodeNext mode.
+    */
+    "verbatimModuleSyntax": true,
+
+    /*
+      Ensure every file is treated as an isolated module.
+      Prevents cross-file type assumptions and improves reliability,
+      especially when using ts-node or bundlers.
+    */
+    "isolatedModules": true,
+
+    /*
+      Disallow modules that run side effects without exports.
+      Helps detect accidental unused imports or hidden execution logic.
+    */
+    "noUncheckedSideEffectImports": true,
+
+    /*
+      Force TypeScript to detect modules even in unusual layouts.
+      Ensures `.ts` files are always treated as modules, not scripts.
+    */
+    "moduleDetection": "force",
+
+    /*
+      Skip type checking of node_modules.
+      This dramatically speeds up compilation and is safe because
+      external dependencies ship their own types.
+    */
+    "skipLibCheck": true,
+
+    /*
+      Specify the output directory for compiled JavaScript files.
+      This allows separation of source TypeScript and compiled JS for production deployment.
+    */
+    "outDir": "./dist"
+  }
+}

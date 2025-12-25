@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-jwt-authentication-elysia",
+  "version": "1.0.0",
+  "description": "Minimal JWT authentication playground using Elysia framework with HttpOnly cookies, access & refresh tokens, and Tailwind CSS UI",
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node server.ts"
+  },
+  "keywords": ["nodejs", "jwt", "authentication", "elysia", "typescript", "tailwind", "playground", "http-only", "tokens"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@elysiajs/html": "^1.4.0",
+    "@elysiajs/node": "^1.4.2",
+    "elysia": "^1.4.19",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.10.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
